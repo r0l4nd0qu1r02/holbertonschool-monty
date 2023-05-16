@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 
     unsigned int line_number = 1;
     char *command = NULL;
+    char *line = NULL;
 
     stack_t *stack = NULL;
 
@@ -21,19 +22,20 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
 
-    lines_reader(argv[1], line_number);
-
-    /* printf("%s\n", line); */
-
-    command = strtok(line, " \n");
-    /*
+    for(; (line = lines_reader(argv[1], line_number)) != NULL; line_number++)
+    {
+        printf("%s\n", line);
+        
+        command = strtok(line, " \n");
+        /*
+        
         if (command == NULL)
 
-    */
-
-    if (strcmp(command, "push") == 0)
-    {
-        push(&stack, line_number);
+        */
+        if (strcmp(command, "push") == 0)
+        {
+            push(&stack, line_number);
+        }
     }
 
     return (EXIT_SUCCESS);

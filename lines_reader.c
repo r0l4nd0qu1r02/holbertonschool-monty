@@ -13,24 +13,27 @@ char *lines_reader(char *file, unsigned int line_number)
 
     if (file_monty == NULL)
     {
-        dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]); 
+        dprintf(STDERR_FILENO, "Error: Can't open file %s\n", file); 
         exit(EXIT_FAILURE); 
     }
 
-
     for(i = 1; i < line_number; i++)
     {
-        number_of_characters_read = getline(&line, &lenght_of_line, file);
+        number_of_characters_read = getline(&line, &lenght_of_line, file_monty);
         
         if (number_of_characters_read == -1)
         {
-            printf("This file is empty\n");
             fclose(file_monty);
+            free(line);
+            return(NULL);
         }
             
-
-        
         if (line_number == i)
+        {
             fclose(file_monty);
+            return(line);
+        }
+
     }
+    return (NULL);
 }
