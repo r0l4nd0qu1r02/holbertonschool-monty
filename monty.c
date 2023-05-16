@@ -9,39 +9,19 @@
  */
 int main(int argc, char **argv)
 {
-    FILE *file;
-
-    char *line = NULL;
-    size_t lenght_of_line = 0;
-    ssize_t number_of_characters_read = 0;
 
     unsigned int line_number = 1;
     char *command = NULL;
 
     stack_t *stack = NULL;
-    
 
     if (argc != 2)
     {
-        fprintf(stderr, "USAGE: monty file\n"); 
+        fprintf(stderr, "USAGE: monty file\n");
         exit(EXIT_FAILURE);
     }
 
-    file = fopen(argv[1],"r");
-
-    if (file == NULL)
-    {
-        dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]); 
-        exit(EXIT_FAILURE); 
-    }
-
-    number_of_characters_read = getline(&line, &lenght_of_line, file);
-
-    if (number_of_characters_read == -1)
-        printf("This file is empty\n");
-    
-    if (line_number == 1)
-        fclose(file);
+    lines_reader(argv[1], line_number);
 
     /* printf("%s\n", line); */
 
@@ -50,7 +30,7 @@ int main(int argc, char **argv)
         if (command == NULL)
 
     */
- 
+
     if (strcmp(command, "push") == 0)
     {
         push(&stack, line_number);
