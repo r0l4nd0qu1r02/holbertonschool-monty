@@ -36,6 +36,8 @@ int main(int argc, char **argv)
         {
             push(&stack, line_number);
         }
+        
+        free(line);
     }
 
     return (EXIT_SUCCESS);
