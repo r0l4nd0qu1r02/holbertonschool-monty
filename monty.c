@@ -26,26 +26,35 @@ int main(int argc, char **argv)
     {
         /* printf("%s\n", line); */
         
-        command = strtok(line, " \n");
-        /*
-        
+        command = strtok(line, " \r\t\n");
         if (command == NULL)
+        {
+            line_number++;
+            continue;
+        }
 
-        */
         if (strcmp(command, "push") == 0)
         {
             push(&stack, line_number);
         }
-
-        if (strcmp(command, "pall") == 0)
+        else if (strcmp(command, "pall") == 0)
         {
             pall(&stack, line_number);
         }
+        else
+        {
+            dprintf(STDERR_FILENO, "L%u: usage: unknown instruction %s\n", line_number, command);
+            exit(EXIT_FAILURE);
+        }
+
+        /*
 
         if (strcmp(command, "nop") == 0)
         {
             nop(&stack, line_number);
         }
+
+        */
         
         free(line);
     }
