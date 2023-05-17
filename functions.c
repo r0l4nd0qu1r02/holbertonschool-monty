@@ -31,7 +31,7 @@ void push(stack_t **stack, unsigned int line_number)
         }
     }
 
-    printf("Numero fuera de la pila %d\n", n);
+    /*printf("Numero fuera de la pila %d\n", n);*/
     
     stack_t *new_node = NULL;
 
@@ -57,12 +57,34 @@ void push(stack_t **stack, unsigned int line_number)
 	*stack = new_node;
 
 
-    printf("Numero dentro de la pila %d\n", (*stack)->n);
+    /*printf("Numero dentro de la pila %d\n", (*stack)->n);*/
 
 	return;
 }
 
 
+
+void pall(stack_t **stack, unsigned int line_number)
+{
+    (void)line_number;
+
+    stack_t *i = NULL;
+
+    if (stack == NULL)
+        return;
+    
+    if (*stack == NULL)
+        return;
+
+    for (i = *stack; i != NULL; i = i->next)
+        printf("%d\n", i->n);
+}
+
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+  (void)stack, (void)line_number;
+}
 
 
 
