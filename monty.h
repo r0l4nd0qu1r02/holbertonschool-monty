@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
+extern char *line;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -44,6 +45,6 @@ void pint(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
 char *lines_reader(char *file, unsigned int line_number);
-
+void stack_freer(stack_t *stack);
 
 #endif

@@ -16,6 +16,8 @@ void push(stack_t **stack, unsigned int line_number)
     if (number == NULL)
     {
         dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+        free(line);
+        stack_freer(*stack);
         exit(EXIT_FAILURE);
     }
 
@@ -27,6 +29,8 @@ void push(stack_t **stack, unsigned int line_number)
         if (n == 0)
         {
             dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+            free(line);
+            stack_freer(*stack);
             exit(EXIT_FAILURE);
         }
     }

@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char *line = NULL;
+
 /**
  * main - Executes de commands of a monty file
  * @argc: Size of argv
@@ -12,8 +14,7 @@ int main(int argc, char **argv)
 
     unsigned int line_number = 1;
     char *command = NULL;
-    char *line = NULL;
-
+    
     stack_t *stack = NULL;
 
     if (argc != 2)
@@ -30,6 +31,7 @@ int main(int argc, char **argv)
         if (command == NULL)
         {
             line_number++;
+            free(line);
             continue;
         }
 
@@ -58,6 +60,8 @@ int main(int argc, char **argv)
         
         free(line);
     }
+
+    stack_freer(stack);
 
     return (EXIT_SUCCESS);
 }
