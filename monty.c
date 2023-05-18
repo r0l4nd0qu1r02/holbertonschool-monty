@@ -43,7 +43,7 @@ int main(int argc, char **argv)
         {
             pall(&stack, line_number);
         }
-        else
+        else 
         {
             dprintf(STDERR_FILENO, "L%u: usage: unknown instruction %s\n", line_number, command);
             exit(EXIT_FAILURE);
