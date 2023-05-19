@@ -68,6 +68,17 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", i->n);
 }
 
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (stack == NULL || *stack == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
+		free(line);
+		stack_freer(*stack);
+		exit(EXIT_FAILURE);	
+	}
+}
+
 void nop(stack_t **stack, unsigned int line_number)
 {
   (void)stack, (void)line_number;
