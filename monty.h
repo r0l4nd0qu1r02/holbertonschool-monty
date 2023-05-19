@@ -38,7 +38,6 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -47,5 +46,6 @@ void nop(stack_t **stack, unsigned int line_number);
 char *lines_reader(char *file, unsigned int line_number);
 void stack_freer(stack_t *stack);
 void (*get_opcode(char *instruction))(stack_t **stack, unsigned int line_number);
+int an_alpha(const char *str);
 
 #endif
