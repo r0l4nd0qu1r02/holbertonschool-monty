@@ -55,6 +55,10 @@ int main(int argc, char **argv)
 		{
 			var = 5;
 		}
+		else if (strcmp(command, "add") == 0)
+		{
+			var = 6;
+		}
 		else
 		{
 			var = 0;
@@ -80,6 +84,10 @@ int main(int argc, char **argv)
 
 		case 5:
 			swap(&stack, line_number);
+			break;
+
+		case 6:
+			add(&stack, line_number);
 			break;
 		
 		default:
