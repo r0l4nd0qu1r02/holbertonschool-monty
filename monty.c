@@ -59,6 +59,10 @@ int main(int argc, char **argv)
 		{
 			var = 6;
 		}
+		else if (strcmp(command, "nop") == 0)
+		{
+			var = 7;
+		}
 		else
 		{
 			var = 0;
@@ -88,6 +92,10 @@ int main(int argc, char **argv)
 
 		case 6:
 			add(&stack, line_number);
+			break;
+
+		case 7:
+			nop(&stack, line_number);
 			break;
 		
 		default:
